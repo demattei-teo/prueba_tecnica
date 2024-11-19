@@ -14,6 +14,9 @@ function Provider() {
     if (user && user.verify === 'verify' && window.location.pathname === routesbyPath.Auth)
       window.location.href = routesbyPath.Home
 
+    if (user && user.verify === 'not verify' && window.location.pathname !== routesbyPath.Auth) {
+      window.location.href = routesbyPath.Auth
+    }
     if (!user && window.location.pathname !== routesbyPath.Auth) window.location.href = routesbyPath.Auth
   }, [])
 
