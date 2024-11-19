@@ -1,4 +1,3 @@
-import './App.css'
 import { Provider } from './provider'
 
 function App() {
