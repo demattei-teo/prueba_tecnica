@@ -1,4 +1,5 @@
-export * from './forms/sign-in-form'
+export * from './molecules/forms/sign-in-form'
+export * from './molecules/forms/sign-up-form'
 export * from './ui/button'
 export * from './ui/form'
 export * from './ui/input'
