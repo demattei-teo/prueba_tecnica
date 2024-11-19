@@ -55,3 +55,19 @@ export interface PaginationInfo {
   next: string | null // URL de la siguiente página
   prev: string | null // URL de la página anterior
 }
+
+export interface Public extends Character {
+  userName: string
+  userAvatar: string
+  userEmail: string
+  PubliccreatedAt: string
+  question: string
+  comments: {
+    id: number
+    comment: string
+    userName: string
+    userAvatar: string
+    userEmail: string
+    CommentcreatedAt: string
+  }[]
+}
