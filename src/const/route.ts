@@ -3,7 +3,8 @@
 enum Routes {
   Home = '/',
   Auth = '/auth',
-  AboutUs = '/about'
+  AboutUs = '/about',
+  User = '/user'
 }
 
 export { Routes }
