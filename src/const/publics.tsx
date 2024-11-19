@@ -1,5 +1,7 @@
 import { Public } from '@/eschema/api.schema'
-
+/**
+ * Default publications for the home page.
+ */
 const defaultPublications: Public[] = [
   {
     id: 1,

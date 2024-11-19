@@ -1,9 +1,10 @@
-//* Routes
-
+/**
+ * Routes for the application.
+ */
 enum Routes {
-  Home = '/',
-  Auth = '/auth',
-  AboutUs = '/about',
+  Home = '/home',
+  Auth = '/',
+  Publication = '/publication',
   User = '/user'
 }
 

@@ -1,4 +1,4 @@
-import { Button, NavLinks, Sheet, SheetContent, SheetFooter, SheetHeader, SheetTrigger, UserBox } from '@/components/'
+import { Button, NavLinks, Sheet, SheetContent, SheetFooter, SheetHeader, SheetTrigger, UserBox } from '@/components'
 import { MenuIcon } from 'lucide-react'
 
 function NavbarSheet() {

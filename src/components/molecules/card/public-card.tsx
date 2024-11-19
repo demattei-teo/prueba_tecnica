@@ -1,16 +1,17 @@
-import { BasicInfoUser } from '@/components/atoms/user/basic-info-user'
+import { BasicInfoUser } from '@/components/'
 import { signUpSchema } from '@/eschema'
 import { Public } from '@/eschema/api.schema'
 import { z } from 'zod'
 
-import { Line } from '@/components/atoms/line'
-import { CommentInput } from '@/components/molecules/forms/comment-form'
-import { Button } from '@/components/ui/button'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { Button, CommentInput, Line, Popover, PopoverContent, PopoverTrigger } from '@/components'
 import { EllipsisVerticalIcon, PencilIcon, Trash2Icon } from 'lucide-react'
 import { useState } from 'react'
 
 interface PublicCardProps {
+  /**
+   * The publication to be displayed.
+   * @param {Public} public - The publication to be displayed.
+   */
   public: Public
 }
 
@@ -44,7 +45,8 @@ function PublicCard({ public: publication }: PublicCardProps) {
           </PopoverContent>
         </Popover>
       </div>
-      <div>
+      <div className='flex flex-col gap-2'>
+        <span className='text-sm font-semibold text-gray-500'>Pregunta relacionada con: {publication.name}</span>
         <p>{publication.question}</p>
       </div>
       <Line />
@@ -62,13 +64,17 @@ function PublicCard({ public: publication }: PublicCardProps) {
         )}
 
         {showComments === 'show comments' && (
-          <Button onClick={() => setShowComments('hide comments')} variant='ghost' className='text-sm text-gray-500'>
+          <Button
+            onClick={() => setShowComments('hide comments')}
+            variant='ghost'
+            className='text-xs md:text-sm text-gray-500'
+          >
             Ocultar Comentarios
           </Button>
         )}
 
-        <span>|</span>
-        <Button variant='ghost' className='text-sm text-gray-500'>
+        <span className='hidden md:block'>|</span>
+        <Button variant='ghost' className='text-xs hidden md:block md:text-sm text-gray-500'>
           35 veces compartido
         </Button>
       </div>

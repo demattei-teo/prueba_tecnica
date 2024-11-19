@@ -1,9 +1,11 @@
-import { Button } from '@/components/ui/button'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { Button, Tooltip, TooltipContent, TooltipTrigger } from '@/components/'
 import { Character } from '@/eschema/api.schema'
 import { useUserProvider } from '@/hook/hook-user'
 
 interface AvatarTooltipProps {
+  /**
+   * The character to be displayed.
+   */
   character: Character
 }
 

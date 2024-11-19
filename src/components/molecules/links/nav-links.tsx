@@ -3,6 +3,9 @@ import { cn } from '@/lib/utils'
 import { Link } from 'react-router-dom'
 
 interface NavLinksProps {
+  /**
+   * Optional additional class names for styling.
+   */
   className?: string
 }
 
@@ -15,8 +18,8 @@ function NavLinks({ className }: NavLinksProps) {
         </Link>
       </li>
       <li>
-        <Link className='font-medium hover:text-primary transition-colors' to={Routes.AboutUs}>
-          Sobre nosotros
+        <Link className='font-medium hover:text-primary transition-colors' to={Routes.Publication}>
+          Publicaciones
         </Link>
       </li>
     </ul>

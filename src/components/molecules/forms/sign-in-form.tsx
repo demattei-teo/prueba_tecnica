@@ -1,8 +1,6 @@
 import { z } from 'zod'
 
-import { Button } from '@/components/ui/button'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+import { Button, Form, FormControl, FormField, FormItem, FormLabel, FormMessage, Input } from '@/components'
 import { Routes } from '@/const'
 import { auth } from '@/eschema'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -21,6 +19,14 @@ function SignInForm() {
   })
   const user = JSON.parse(localStorage.getItem('user') as string)
 
+  /**
+   * Handles the submission of the sign-in form.
+   * If the user does not exist, shows an error message.
+   * If the user exists and the password is correct, logs the user in
+   * and redirects to the home page.
+   * If the user exists but the password is incorrect, shows an error message.
+   * @param {z.infer<typeof auth>} values The form values
+   */
   function onSubmit(values: z.infer<typeof auth>) {
     if (!user) return toast.error('Por favor, regístrate antes de continuar')
 

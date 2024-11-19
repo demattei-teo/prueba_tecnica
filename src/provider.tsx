@@ -5,8 +5,9 @@ import { Toaster } from 'sonner'
 import { TooltipProvider } from './components'
 import { UserProvider } from './context'
 import { PublicationProvider } from './context/context-public'
-import { AboutUs, Home } from './pages'
+import { Home } from './pages'
 import { Auth } from './pages/auth'
+import { Publication } from './pages/publication'
 function Provider() {
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user') as string)
@@ -26,7 +27,7 @@ function Provider() {
             <Router>
               <Routes>
                 <Route path={routesbyPath.Home} element={<Home />} />
-                <Route path={routesbyPath.AboutUs} element={<AboutUs />} />
+                <Route path={routesbyPath.Publication} element={<Publication />} />
                 <Route path={routesbyPath.Auth} element={<Auth />} />
               </Routes>
             </Router>

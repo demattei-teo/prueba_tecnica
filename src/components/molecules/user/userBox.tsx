@@ -5,7 +5,13 @@ import { BasicInfoUser, Line, Popover, PopoverContent, PopoverTrigger } from '@/
 import { useUserProvider } from '@/hook/hook-user'
 
 interface UserBoxProps {
+  /**
+   * Optional additional class names for styling.
+   */
   className?: string
+  /**
+   * The variant of the component.
+   */
   variant?: 'only logo' | 'complete'
 }
 
