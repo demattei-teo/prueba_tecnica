@@ -3,8 +3,7 @@ import { signUpSchema } from '@/eschema'
 import { Public } from '@/eschema/api.schema'
 import { z } from 'zod'
 
-import { Button, CommentInput, Line, Popover, PopoverContent, PopoverTrigger } from '@/components'
-import { EllipsisVerticalIcon, PencilIcon, Trash2Icon } from 'lucide-react'
+import { Button, CommentInput, Line } from '@/components'
 import { useState } from 'react'
 
 interface PublicCardProps {
@@ -27,23 +26,8 @@ function PublicCard({ public: publication }: PublicCardProps) {
 
   return (
     <article className='grid xl:min-w-[450px] p-5 gap-4 bg-white rounded-lg'>
-      <div className='flex gap-2 justify-between items-center'>
+      <div className='flex gap-2 justify-start items-center'>
         <BasicInfoUser user={publicationUser} variant='complete' />
-        <Popover>
-          <PopoverTrigger asChild>
-            <Button variant='ghost' className='w-10 h-10' size='icon'>
-              <EllipsisVerticalIcon className='w-6 h-6' />
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent className='w-full flex flex-col gap-3 p-4 rounded-md bg-white'>
-            <Button variant='ghost' className='w-full'>
-              Editar Publicación <PencilIcon className='w-6 h-6' />
-            </Button>
-            <Button variant='ghost' className='w-full'>
-              Eliminar Publicación <Trash2Icon className='w-6 h-6' />
-            </Button>
-          </PopoverContent>
-        </Popover>
       </div>
       <div className='flex flex-col gap-2'>
         <span className='text-sm font-semibold text-gray-500'>Pregunta relacionada con: {publication.name}</span>
