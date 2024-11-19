@@ -35,7 +35,7 @@ function UserBox({ className, variant = 'only logo' }: UserBoxProps) {
           <Button
             variant='ghost'
             onClick={() => {
-              localStorage.removeItem('user')
+              localStorage.setItem('user', JSON.stringify({ ...user, verify: 'not verify' }))
               window.location.reload()
             }}
             className='w-full'
