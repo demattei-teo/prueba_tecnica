@@ -1,7 +1,8 @@
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
-import { BasicInfoUser, Popover, PopoverContent, PopoverTrigger } from '@/components/'
+import { BasicInfoUser, Line, Popover, PopoverContent, PopoverTrigger } from '@/components/'
+import { useUserProvider } from '@/hook/hook-user'
 
 interface UserBoxProps {
   className?: string
@@ -9,6 +10,8 @@ interface UserBoxProps {
 }
 
 function UserBox({ className, variant = 'only logo' }: UserBoxProps) {
+  const { user } = useUserProvider()
+
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -16,12 +19,12 @@ function UserBox({ className, variant = 'only logo' }: UserBoxProps) {
           variant='ghost'
           className={cn('flex items-start justify-start p-0 gap-2 text-start hover:bg-transparent', className)}
         >
-          <BasicInfoUser variant={variant} />
+          <BasicInfoUser user={user} variant={variant} />
         </Button>
       </PopoverTrigger>
       <PopoverContent className='w-full flex flex-col gap-3 p-4 rounded-md bg-white'>
-        <BasicInfoUser variant='complete' />
-        <div className='w-full bg-slate-200 h-[0.5px]' />
+        <BasicInfoUser user={user} variant='complete' />
+        <Line />
         <div>
           <Button
             variant='ghost'

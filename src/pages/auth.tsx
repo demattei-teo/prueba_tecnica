@@ -1,5 +1,5 @@
 import { SignInForm, SignUpForm, Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/'
-import { useUserProvider } from '@/hook/user'
+import { useUserProvider } from '@/hook/hook-user'
 import { useEffect, useState } from 'react'
 
 enum Tab {
