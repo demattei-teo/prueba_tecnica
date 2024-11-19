@@ -15,7 +15,10 @@ const auth = z.object({
  */
 
 const signUpSchema = auth.extend({
-  email: z.string().email({ message: 'Dirección de correo electrónico no válida.' }),
+  email: z
+    .string()
+    .min(1, { message: 'El campo es obligatorio.' })
+    .email({ message: 'Dirección de correo electrónico no válida.' }),
   avatar: z.string().optional()
 })
 

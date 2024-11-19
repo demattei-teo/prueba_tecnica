@@ -51,10 +51,6 @@ function PublicationForm() {
     }
   }
 
-  useEffect(() => {
-    getAllCharacters()
-  }, [])
-
   /**
    * Function which is responsible for saving a new publication in the status
    * of the page and reset the form..
@@ -84,9 +80,13 @@ function PublicationForm() {
    * Function that gets the character from the API and sets it in the form.
    * @param {string} name - The name of the character.
    */
-  function getCharacter(name: string) {
+  function getCharacter({ name = characters[0].name }: { name?: string }) {
     form.setValue('characterName', name)
   }
+
+  useEffect(() => {
+    getAllCharacters()
+  }, [])
 
   return (
     <Form {...form}>
@@ -109,26 +109,31 @@ function PublicationForm() {
 
         <Line />
         <div className='flex gap-2 justify-between'>
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button variant='ghost' className='w-auto justify-self-start'>
-                <UsersRound className='w-6 h-6' />
-                <span>{form.watch('characterName') === '' ? 'Elige un personaje' : form.watch('characterName')}</span>
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className='items-center flex flex-col gap-3 p-4 rounded-md bg-white'>
-              <Input onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Buscar personajes' />
-              <Line />
-              <span className='text-sm font-semibold'>¿Sobre qué personaje te gustaría saber más? </span>
-              <div className='grid grid-cols-5 gap-3'>
-                {characters
-                  .filter((character) => character.name.toLowerCase().includes(search.toLowerCase()))
-                  .map((character, index) => (
-                    <CharacterTooltip getCharacter={getCharacter} key={index} character={character} />
-                  ))}
-              </div>
-            </PopoverContent>
-          </Popover>
+          <div className='flex gap-2 flex-col items-center'>
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant={form.formState.errors.characterName ? 'destructive' : 'ghost'}
+                  className='w-auto justify-self-start'
+                >
+                  <UsersRound className='w-6 h-6' />
+                  <span>{form.watch('characterName') === '' ? 'Elige un personaje' : form.watch('characterName')}</span>
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className='items-center flex flex-col gap-3 p-4 rounded-md bg-white'>
+                <Input onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Buscar personajes' />
+                <Line />
+                <span className='text-sm font-semibold'>¿Sobre qué personaje te gustaría saber más? </span>
+                <div className='grid grid-cols-5 gap-3'>
+                  {characters
+                    .filter((character) => character.name.toLowerCase().includes(search.toLowerCase()))
+                    .map((character, index) => (
+                      <CharacterTooltip getCharacter={getCharacter} key={index} character={character} />
+                    ))}
+                </div>
+              </PopoverContent>
+            </Popover>
+          </div>
           <Button type='submit' disabled={form.formState.isSubmitting}>
             {form.formState.isSubmitting ? <Loader2Icon size={20} className='animate-spin' /> : 'Publicar'}
           </Button>
