@@ -1,60 +1,80 @@
-// Schema principal para un personaje
+/**
+ * Schema for a character.
+ */
+
 export interface Character {
-  id: number // Identificador único del personaje
-  name: string // Nombre del personaje
-  status: 'Alive' | 'Dead' | 'unknown' // Estado del personaje
-  species: string // Especie del personaje
-  type: string // Tipo de personaje (puede estar vacío)
-  gender: 'Male' | 'Female' | 'Genderless' | 'unknown' // Género
-  origin: LocationReference // Origen del personaje (solo nombre y url)
-  location: LocationReference // Última ubicación conocida (solo nombre y url)
-  image: string // URL de la imagen del personaje
-  episode: string[] // URLs de episodios donde aparece el personaje
-  url: string // URL del recurso del personaje
-  created: string // Fecha de creación en la base de datos
+  id: number
+  name: string
+  status: 'Alive' | 'Dead' | 'unknown'
+  species: string
+  type: string
+  gender: 'Male' | 'Female' | 'Genderless' | 'unknown'
+  origin: LocationReference
+  location: LocationReference
+  image: string
+  episode: string[]
+  url: string
+  created: string
 }
 
-// Referencia a un lugar o recurso
+/**
+ * Schema for a location reference.
+ */
+
 export interface LocationReference {
-  name: string // Nombre del lugar
-  url: string // URL del recurso
+  name: string
+  url: string
 }
 
-// Schema para una ubicación
+/**
+ * Schema for a location.
+ */
+
 export interface Location {
-  id: number // Identificador único de la ubicación
-  name: string // Nombre de la ubicación
-  type: string // Tipo de lugar (ej. Planeta, Microverso)
-  dimension: string // Dimensión del lugar (ej. "C-137")
-  residents: string[] // URLs de los personajes que han estado en esta ubicación
-  url: string // URL del recurso
-  created: string // Fecha de creación en la base de datos
+  id: number
+  name: string
+  type: string
+  dimension: string
+  residents: string[]
+  url: string
+  created: string
 }
 
-// Schema para un episodio
+/**
+ * Schema for an episode.
+ */
+
 export interface Episode {
-  id: number // Identificador único del episodio
-  name: string // Nombre del episodio
-  air_date: string // Fecha de emisión del episodio
-  episode: string // Código del episodio (ej. "S01E01")
-  characters: string[] // URLs de los personajes que aparecen en el episodio
-  url: string // URL del recurso
-  created: string // Fecha de creación en la base de datos
+  id: number
+  name: string
+  air_date: string
+  episode: string
+  characters: string[]
+  url: string
+  created: string
 }
 
-// Respuesta paginada (aplica a todos los endpoints principales)
+/**
+ * Schema for a paginated response.
+ */
 export interface PaginatedResponse<T> {
-  info: PaginationInfo // Información de paginación
-  results: T[] // Resultados específicos del endpoint
+  info: PaginationInfo
+  results: T[]
 }
 
-// Información de paginación
+/**
+ * Schema for pagination information.
+ */
 export interface PaginationInfo {
-  count: number // Total de elementos
-  pages: number // Total de páginas
-  next: string | null // URL de la siguiente página
-  prev: string | null // URL de la página anterior
+  count: number
+  pages: number
+  next: string | null
+  prev: string | null
 }
+
+/**
+ * Schema for a public.
+ */
 
 export interface Public extends Character {
   userName: string

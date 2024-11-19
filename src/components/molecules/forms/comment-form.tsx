@@ -1,6 +1,4 @@
-import { Button } from '@/components/ui/button'
-import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+import { Button, Form, FormControl, FormField, FormItem, Input } from '@/components'
 import { commentSchema } from '@/eschema'
 import { Public } from '@/eschema/api.schema'
 import { usePublicationProvider } from '@/hook/hook-publication'
@@ -12,6 +10,10 @@ import { z } from 'zod'
 import { BasicInfoUser } from '../../atoms/user/basic-info-user'
 
 interface CommentInputProps {
+  /**
+   * The publication to be displayed.
+   * @param {Public} publication - The publication to be displayed.
+   */
   publication: Public
 }
 

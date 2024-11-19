@@ -5,8 +5,17 @@ import { CircleUserRound } from 'lucide-react'
 import { z } from 'zod'
 
 interface BasicInfoUserProps {
+  /**
+   * The user to be displayed.
+   */
   user: z.infer<typeof signUpSchema> | null
+  /**
+   * Optional additional class names for styling.
+   */
   className?: string
+  /**
+   * The variant of the component.
+   */
   variant?: 'only logo' | 'complete'
 }
 
@@ -27,4 +36,3 @@ function BasicInfoUser({ className = '', variant = 'only logo', user }: BasicInf
 }
 
 export { BasicInfoUser }
-

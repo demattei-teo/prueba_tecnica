@@ -13,6 +13,11 @@ function ChangeAvatarBox() {
   const { user } = useUserProvider()
   const [search, setSearch] = useState('')
   const [characters, setCharacters] = useState<Character[]>([])
+
+  /**
+   * Function that takes care of getting all the characters from the API.
+   * If it fails, it will show an error message.
+   */
   async function getAllCharacters() {
     try {
       const characters = await getCharacters()

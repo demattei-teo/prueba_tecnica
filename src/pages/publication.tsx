@@ -1,6 +1,6 @@
-import { ChangeAvatarBox, Navbar, PublicGrid, StreamLinks } from '@/components'
+import { ChangeAvatarBox, Navbar, PublicationForm, PublicGrid, StreamLinks } from '@/components'
 
-function Home() {
+function Publication() {
   return (
     <>
       <header className='w-full bg-white p-3 flex items-center justify-center'>
@@ -11,10 +11,13 @@ function Home() {
           <ChangeAvatarBox />
           <StreamLinks />
         </section>
-        <PublicGrid />
+        <section className='w-full flex flex-col gap-10 items-start'>
+          <PublicationForm />
+          <PublicGrid />
+        </section>
       </main>
     </>
   )
 }
 
-export { Home }
+export { Publication }

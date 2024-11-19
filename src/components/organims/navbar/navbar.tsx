@@ -1,8 +1,4 @@
-import { NavLinks } from '@/components/molecules/links/nav-links'
-import { NavbarSheet } from '@/components/molecules/sheets/navbar-sheet'
-import { UserBox } from '@/components/molecules/user/userBox'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
+import { Button, NavbarSheet, NavLinks, SearchPublic, UserBox } from '@/components'
 import { SearchIcon, XIcon } from 'lucide-react'
 import { useState } from 'react'
 
@@ -15,7 +11,7 @@ function Navbar() {
         <NavLinks className='hidden lg:flex' />
       </div>
       {!openSearchMobile && <img src='/logo.png' alt='logo' className='h-12 w-auto' />}
-      {openSearchMobile && <Input placeholder='Buscar publicaciones' className='w-full max-w-80 lg:hidden' />}
+      {openSearchMobile && <SearchPublic className='w-full max-w-80 lg:hidden' />}
 
       <div className='gap-2 justify-between flex lg:hidden'>
         {!openSearchMobile ? (
@@ -29,7 +25,7 @@ function Navbar() {
         )}
         <NavbarSheet />
       </div>
-      <Input placeholder='Buscar publicaciones' className='w-full max-w-80 hidden lg:block' />
+      <SearchPublic className='w-full max-w-80 hidden lg:block' />
     </nav>
   )
 }

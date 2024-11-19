@@ -1,8 +1,6 @@
 import { z } from 'zod'
 
-import { Button } from '@/components/ui/button'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+import { Button, Form, FormControl, FormField, FormItem, FormLabel, FormMessage, Input } from '@/components'
 import { famousCharacterID } from '@/const'
 import { signUpSchema } from '@/eschema'
 import { Character } from '@/eschema/api.schema'
@@ -28,6 +26,11 @@ function SignUpForm() {
     }
   })
 
+  /**
+   * Gets the famous people according to their ID.
+   * @param id - The character ID.
+   * @returns - An array of characters with the provided ID.
+   */
   async function famousCharacter(id: number[]) {
     try {
       const response: Character[] = await getFamousCharacter(id)
@@ -39,11 +42,19 @@ function SignUpForm() {
   }
 
   useEffect(() => {
+    /**
+     * Gets the famous characters from the API and sets them in the state.
+     */
     famousCharacter(famousCharacterID)
       .then((res) => res)
       .catch((err) => console.log(err))
   }, [])
 
+  /**
+   * Saves the user in local storage and updates the reload state.
+   * Shows a success toast message and resets the form.
+   * @param values - The values of the form.
+   */
   function onSubmit(values: z.infer<typeof signUpSchema>) {
     localStorage.setItem('user', JSON.stringify(values))
     toast.success('Registro exitoso')
