@@ -21,7 +21,7 @@ function Auth() {
         value={changetab}
         onValueChange={(value) => setChangetab(value as Tab.SignIn | Tab.SignUp)}
         defaultValue={changetab}
-        className='max-w-[450px] rounded-md shadow-2xl p-5 pt-3 w-full grid items-center justify-items-center'
+        className='max-w-[450px] bg-white rounded-md shadow-2xl p-5 pt-3 w-full grid items-center justify-items-center'
       >
         <TabsList className='self-center'>
           <TabsTrigger value={Tab.SignIn}>Iniciar sesión</TabsTrigger>
